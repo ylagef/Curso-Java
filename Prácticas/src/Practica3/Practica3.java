@@ -97,7 +97,7 @@ public class Practica3 {
         System.out.println("La suma es: " + sumaR + "\nEl promedio es: " + promedioR + "\nEl máximo es: " + maxR + " y su posición es: " + posicionR);
 
         //Imprimir matriz de radiaciones
-        System.out.println("\tLA MATRIZ DE RADIACIONES ES: \n");
+        System.out.println("\n\tLA MATRIZ DE RADIACIONES ES: \n");
         for (int i = 0; i < radiacion.length; i++) {
             for (int j = 0; j < radiacion[i].length; j++) {
                 System.out.print(radiacion[i][j] + " ");
