@@ -25,6 +25,7 @@ public class Practica3 {
         //Suma y promedio:
         double suma = 0;
         int cantidad = 0;
+
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 suma += matriz[i][j];
@@ -36,6 +37,7 @@ public class Practica3 {
         //Maximo y posicion:
         double max = 0;
         String posicion = "";
+
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (matriz[i][j] > max) {
@@ -45,10 +47,12 @@ public class Practica3 {
             }
         }
 
-        System.out.println("La suma es: " + suma + "\nEl promedio es: " + promedio + "\nEl máximo es: " + max + " y su posición es: " + posicion);
+        System.out.println("La suma es: " + suma + "\nEl promedio es: " + promedio + "\nEl máximo es: " + max +
+                " y su posición es: " + posicion);
 
         //Imprimir tabla
         System.out.println("\n\tLA MATRIZ ES: \n");
+
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 System.out.print(matriz[i][j] + " ");
@@ -56,11 +60,12 @@ public class Practica3 {
             System.out.println();
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////// EJ 2
+
         System.out.print("\nEjercicio 2\n\n");
 
         int radiacion[][] = new int[5][];
         int dia = 1;
-
 
         for (int i = 0; i < radiacion.length; i++) {
             radiacion[i] = new int[dia];
@@ -74,6 +79,7 @@ public class Practica3 {
         //Suma y promedio:
         double sumaR = 0;
         int cantidadValores = 0;
+
         for (int i = 0; i < radiacion.length; i++) {
             for (int j = 0; j < radiacion[i].length; j++) {
                 sumaR += radiacion[i][j];
@@ -85,6 +91,7 @@ public class Practica3 {
         //Maximo y posicion:
         double maxR = 0;
         String posicionR = "";
+
         for (int i = 0; i < radiacion.length; i++) {
             for (int j = 0; j < radiacion[i].length; j++) {
                 if (radiacion[i][j] > maxR) {
@@ -94,10 +101,12 @@ public class Practica3 {
             }
         }
 
-        System.out.println("La suma es: " + sumaR + "\nEl promedio es: " + promedioR + "\nEl máximo es: " + maxR + " y su posición es: " + posicionR);
+        System.out.println("La suma es: " + sumaR + "\nEl promedio es: " + promedioR + "\nEl máximo es: " + maxR +
+                " y su posición es: " + posicionR);
 
         //Imprimir matriz de radiaciones
         System.out.println("\n\tLA MATRIZ DE RADIACIONES ES: \n");
+
         for (int i = 0; i < radiacion.length; i++) {
             for (int j = 0; j < radiacion[i].length; j++) {
                 System.out.print(radiacion[i][j] + " ");
