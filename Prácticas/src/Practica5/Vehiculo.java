@@ -3,23 +3,32 @@ package Practica5;
 /**
  * Created by Yeray on 03/06/2016.
  */
-class Vehiculo {
+abstract class Vehiculo {
+    static int numeroObjetos;
+
+    static {
+        numeroObjetos = 0;
+    }
+
     private int pasajeros; // número de pasajeros
     private int deposito; // capacidad de combustible
     private float consumo; // consumo en litros/100Km
+
+    Vehiculo() {
+        this(0, 0, 0);
+        numeroObjetos++;
+    }
 
     Vehiculo(int pasajeros, int deposito, float consumo) {
         this.pasajeros = pasajeros;
         this.deposito = deposito;
         this.consumo = consumo;
-    }
-
-    Vehiculo() {
-        this(0, 0, 0); // this para llamar a otro constructor de la misma clase
+        numeroObjetos++;
     }
 
     Vehiculo(Vehiculo v) {
         this(v.pasajeros, v.deposito, v.consumo);
+        numeroObjetos++;
     }
 
     float autonomia() {
@@ -56,13 +65,15 @@ class Vehiculo {
                 (v.pasajeros == pasajeros);
     }
 
+    /*
     Vehiculo clonar() {
         return new Vehiculo(this);
     }
+    */
 
     String visual() {
-        String resultado = "Pasajeros: " + pasajeros +
-                "\nDepósito: " + deposito + "\nConsumo: " + consumo;
-        return resultado;
+        return "Pasajeros: " + pasajeros + "\nDepósito: " + deposito + "\nConsumo: " + consumo + "\nCuantos nuevos: " + cuantosNuevos();
     }
+
+    public abstract int cuantosNuevos();
 }
