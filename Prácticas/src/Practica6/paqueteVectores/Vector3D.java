@@ -7,9 +7,9 @@ import Practica6.paqueteIVector.IVector;
  */
 public class Vector3D extends Vector2D implements IVector {
     double z;
-    double modulo = Math.sqrt((x * x) + (y * y) + (z * z));
 
     public Vector3D() {
+        this(0, 0, 0);
     }
 
     public Vector3D(double x, double y, double z) {
@@ -23,16 +23,17 @@ public class Vector3D extends Vector2D implements IVector {
 
     @Override
     public double getModulo() {
-        return modulo;
+        return Math.sqrt((x * x) + (y * y) + (z * z));
     }
 
     @Override
     public void mostrarCoordenadas() {
-        System.out.printf("Las coordenadas son x=" + x + " y=" + y + " z=" + z);
+        System.out.println("Las coordenadas son x=" + x + " y=" + y + " z=" + z);
     }
 
     @Override
     public void normalizar() {
+        double modulo = getModulo();
         super.normalizar();
         z /= modulo;
     }
@@ -43,8 +44,9 @@ public class Vector3D extends Vector2D implements IVector {
         z /= divisor;
     }
 
-    public Vector3D unitarioOrtogonal(Vector3D original) {
-        return new Vector3D((-original.y / original.getModulo()), (original.x / original.getModulo()), (original.z / original.getModulo()));
+    public Vector3D unitarioOrtogonal() {
+        double modulo = getModulo();
+        return new Vector3D((-y / modulo), (x / modulo), (z / modulo));
     }
 
     Vector3D suma(Vector3D v) {

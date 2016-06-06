@@ -7,9 +7,9 @@ import Practica6.paqueteIVector.IVector;
  */
 public class Vector2D implements IVector {
     double x, y;
-    double modulo = Math.sqrt((x * x) + (y * y));
 
     public Vector2D() {
+        this(0, 0);
     }
 
     public Vector2D(double x, double y) {
@@ -23,7 +23,7 @@ public class Vector2D implements IVector {
 
     @Override
     public double getModulo() {
-        return modulo;
+        return Math.sqrt((x * x) + (y * y));
     }
 
     @Override
@@ -33,6 +33,7 @@ public class Vector2D implements IVector {
 
     @Override
     public void normalizar() {
+        double modulo = getModulo();
         x /= modulo;
         y /= modulo;
     }
@@ -43,8 +44,9 @@ public class Vector2D implements IVector {
         y /= divisor;
     }
 
-    public Vector2D unitarioOrtogonal(Vector2D original) {
-        return new Vector2D((-original.y / original.getModulo()), (original.x / original.getModulo()));
+    public Vector2D unitarioOrtogonal() {
+        double modulo = getModulo();
+        return new Vector2D((-y / modulo), (x / modulo));
     }
 
     public boolean esOrtogonal(Vector2D v) {
