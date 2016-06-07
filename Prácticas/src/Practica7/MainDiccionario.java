@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class MainDiccionario {
 
     public static void main(String[] args) {
+
         boolean sigue = true;
 
         Diccionario diccionario = new Diccionario();
@@ -87,6 +88,4 @@ public class MainDiccionario {
             }
         }
     }
-
-
 }
