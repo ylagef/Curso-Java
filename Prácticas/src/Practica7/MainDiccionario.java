@@ -6,6 +6,7 @@ import java.util.Scanner;
 /**
  * Created by Yeray on 07/06/2016.
  */
+
 public class MainDiccionario {
 
     public static void main(String[] args) {
@@ -19,9 +20,9 @@ public class MainDiccionario {
 
             System.out.print("OPCION: ");
             Scanner scanner = new Scanner(System.in);
-            int opcion = scanner.nextInt();
+            String opcion = scanner.next();
 
-            if (opcion == 1) {
+            if (opcion.contains("1") && opcion.length() == 1) {
                 System.out.println("¿Qué palabra desea introducir?");
                 scanner = new Scanner(System.in);
                 String palabra = scanner.next();
@@ -43,7 +44,7 @@ public class MainDiccionario {
 
                 diccionario.addEntry(palabra, definiciones);
 
-            } else if (opcion == 2) {
+            } else if (opcion.contains("2") && opcion.length() == 1) {
 
                 boolean noExiste = true;
                 boolean menu = false;
@@ -54,13 +55,14 @@ public class MainDiccionario {
                     scanner = new Scanner(System.in);
                     palabra = scanner.next();
 
-                    if (palabra.startsWith("S") && palabra.length() == 1) {
+                    if (palabra.startsWith("M") && palabra.length() == 1) {
                         menu = true;
                         break;
                     }
 
                     if (!diccionario.contains(palabra)) {
-                        System.out.println("ERROR. No existe la palabra en el diccionario. Vuelva a intentarlo. (S para SALIR).");
+                        System.out.println("ERROR. No existe la palabra en el diccionario. Vuelva a intentarlo." +
+                                "(M para MENÚ).");
                         noExiste = true;
                     } else {
                         noExiste = false;
@@ -72,13 +74,13 @@ public class MainDiccionario {
                 }
 
                 System.out.println("Sus definiciones son:");
-                ArrayList<String> definiciones = diccionario.search(palabra);
+                ArrayList definiciones = diccionario.search(palabra);
 
                 for (int i = 0; i < definiciones.size(); i++) {
                     System.out.println("Definición " + (i + 1) + ": " + definiciones.get(i));
                 }
 
-            } else if (opcion == 3) {
+            } else if (opcion.contains("3") && opcion.length() == 1) {
                 sigue = false;
             } else {
                 System.out.println("OPCION INCORRECTA.");
